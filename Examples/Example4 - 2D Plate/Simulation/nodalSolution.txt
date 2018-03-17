@@ -1,0 +1,243 @@
+
+ CHARACTERS IN INTEGER FIELD    =   7
+ OUTPUT DISPLAY TYPE            =   E 
+ CHARACTERS PER OUTPUT FIELD    =  15
+ CHARACTERS AFTER DECIMAL POINT =   5
+ LINES PER PAGE                 = 880
+ CHARACTERS PER LINE            = 140
+
+ PRINT S    NODAL SOLUTION PER NODE
+
+ *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE Release 18.2     18.2     ***
+ DISTRIBUTED ANSYS Academic Teaching Introductory              
+
+ 01055371  VERSION=WINDOWS x64   23:11:01  JAN 30, 2018 CP=      0.203
+
+ unsaved_project--Static Structural (A5)                                       
+
+
+ 
+  ***** POST1 NODAL STRESS LISTING *****                                       
+ 
+  LOAD STEP=     1  SUBSTEP=     1                                             
+   TIME=    1.0000      LOAD CASE=   0                                         
+ 
+  THE FOLLOWING X,Y,Z VALUES ARE IN GLOBAL COORDINATES                         
+ 
+    NODE       SX             SY             SZ             SXY            SYZ            SXZ     
+       1    0.18833E-006   0.11193E-005   0.00000E+000   0.14674E-006   0.00000E+000   0.00000E+000
+       2    0.19534E-006   0.11122E-005   0.00000E+000  -0.13481E-006   0.00000E+000   0.00000E+000
+       3   -0.73728E-008   0.99596E-006   0.00000E+000   0.43584E-008   0.00000E+000   0.00000E+000
+       4   -0.71644E-008   0.99384E-006   0.00000E+000  -0.44593E-008   0.00000E+000   0.00000E+000
+       5    0.79346E-008   0.10436E-005   0.00000E+000  -0.13440E-006   0.00000E+000   0.00000E+000
+       6    0.13023E-007   0.10290E-005   0.00000E+000  -0.23000E-007   0.00000E+000   0.00000E+000
+       7   -0.27695E-006   0.12748E-005   0.00000E+000  -0.52690E-008   0.00000E+000   0.00000E+000
+       8   -0.26724E-007   0.11036E-005   0.00000E+000  -0.24617E-007   0.00000E+000   0.00000E+000
+       9   -0.52676E-007   0.12726E-005   0.00000E+000   0.23795E-006   0.00000E+000   0.00000E+000
+      10   -0.36595E-007   0.11385E-005   0.00000E+000   0.87604E-007   0.00000E+000   0.00000E+000
+      11    0.28397E-006   0.11258E-005   0.00000E+000   0.17080E-006   0.00000E+000   0.00000E+000
+      12    0.53256E-007   0.11032E-005   0.00000E+000   0.70284E-007   0.00000E+000   0.00000E+000
+      13    0.34759E-006   0.10913E-005   0.00000E+000  -0.86334E-007   0.00000E+000   0.00000E+000
+      14    0.70336E-007   0.10953E-005   0.00000E+000  -0.38333E-007   0.00000E+000   0.00000E+000
+      15    0.67395E-007   0.12273E-005   0.00000E+000  -0.24384E-006   0.00000E+000   0.00000E+000
+      16    0.14978E-009   0.11285E-005   0.00000E+000  -0.10607E-006   0.00000E+000   0.00000E+000
+      17   -0.24142E-006   0.12629E-005   0.00000E+000  -0.56582E-007   0.00000E+000   0.00000E+000
+      18   -0.51682E-007   0.11223E-005   0.00000E+000   0.22987E-008   0.00000E+000   0.00000E+000
+      19   -0.33837E-007   0.10276E-005   0.00000E+000   0.11674E-006   0.00000E+000   0.00000E+000
+      20    0.22988E-007   0.10259E-005   0.00000E+000   0.36976E-007   0.00000E+000   0.00000E+000
+      21    0.89089E-007   0.91048E-006   0.00000E+000   0.11775E-006   0.00000E+000   0.00000E+000
+      22    0.29760E-007   0.98202E-006   0.00000E+000   0.37559E-007   0.00000E+000   0.00000E+000
+      23    0.15713E-006   0.84377E-006   0.00000E+000  -0.17735E-009   0.00000E+000   0.00000E+000
+      24    0.35825E-007   0.96269E-006   0.00000E+000   0.26061E-009   0.00000E+000   0.00000E+000
+      25    0.88684E-007   0.91194E-006   0.00000E+000  -0.11846E-006   0.00000E+000   0.00000E+000
+      26    0.30083E-007   0.98178E-006   0.00000E+000  -0.37472E-007   0.00000E+000   0.00000E+000
+      27   -0.37948E-007   0.10269E-005   0.00000E+000  -0.11752E-006   0.00000E+000   0.00000E+000
+      28    0.24104E-007   0.10249E-005   0.00000E+000  -0.37557E-007   0.00000E+000   0.00000E+000
+      29   -0.23164E-006   0.12679E-005   0.00000E+000   0.76734E-007   0.00000E+000   0.00000E+000
+      30   -0.55078E-007   0.11257E-005   0.00000E+000   0.71007E-008   0.00000E+000   0.00000E+000
+      31    0.11729E-006   0.12009E-005   0.00000E+000   0.23995E-006   0.00000E+000   0.00000E+000
+      32    0.11600E-007   0.11250E-005   0.00000E+000   0.10700E-006   0.00000E+000   0.00000E+000
+      33    0.36600E-006   0.10826E-005   0.00000E+000   0.26876E-007   0.00000E+000   0.00000E+000
+      34    0.77216E-007   0.10941E-005   0.00000E+000   0.18495E-007   0.00000E+000   0.00000E+000
+      35    0.18359E-006   0.11801E-005   0.00000E+000  -0.22594E-006   0.00000E+000   0.00000E+000
+      36    0.23967E-007   0.11226E-005   0.00000E+000  -0.10243E-006   0.00000E+000   0.00000E+000
+      37   -0.21786E-006   0.12981E-005   0.00000E+000  -0.93690E-007   0.00000E+000   0.00000E+000
+      38   -0.35594E-007   0.11119E-005   0.00000E+000  -0.14316E-007   0.00000E+000   0.00000E+000
+      39   -0.33460E-007   0.10401E-005   0.00000E+000   0.12851E-006   0.00000E+000   0.00000E+000
+      40    0.17366E-007   0.10280E-005   0.00000E+000   0.22537E-007   0.00000E+000   0.00000E+000
+      41    0.10933E-006   0.88327E-006   0.00000E+000   0.97945E-007   0.00000E+000   0.00000E+000
+      42    0.11364E-006   0.97261E-006   0.00000E+000   0.29834E-009   0.00000E+000   0.00000E+000
+      43    0.12983E-006   0.87161E-006   0.00000E+000  -0.80790E-007   0.00000E+000   0.00000E+000
+      44    0.11185E-006   0.97074E-006   0.00000E+000  -0.22034E-008   0.00000E+000   0.00000E+000
+      45    0.27509E-006   0.22541E-005   0.00000E+000  -0.48092E-006   0.00000E+000   0.00000E+000
+      46    0.81226E-007   0.12829E-005   0.00000E+000  -0.49823E-006   0.00000E+000   0.00000E+000
+      47   -0.24296E-006   0.62282E-006   0.00000E+000  -0.28697E-006   0.00000E+000   0.00000E+000
+      48   -0.37317E-006   0.23098E-006   0.00000E+000  -0.15234E-006   0.00000E+000   0.00000E+000
+      49   -0.44120E-006   0.62439E-007   0.00000E+000   0.28127E-008   0.00000E+000   0.00000E+000
+      50   -0.37377E-006   0.23248E-006   0.00000E+000   0.15242E-006   0.00000E+000   0.00000E+000
+      51   -0.24757E-006   0.61426E-006   0.00000E+000   0.28544E-006   0.00000E+000   0.00000E+000
+      52    0.55294E-007   0.12020E-005   0.00000E+000   0.48804E-006   0.00000E+000   0.00000E+000
+      53    0.27924E-006   0.21230E-005   0.00000E+000   0.51235E-006   0.00000E+000   0.00000E+000
+      54    0.24779E-006   0.27322E-005   0.00000E+000   0.14413E-006   0.00000E+000   0.00000E+000
+      55    0.27676E-006   0.25797E-005   0.00000E+000  -0.35126E-006   0.00000E+000   0.00000E+000
+      56    0.30913E-006   0.18123E-005   0.00000E+000  -0.57889E-006   0.00000E+000   0.00000E+000
+      57    0.91763E-008   0.90669E-006   0.00000E+000  -0.46876E-006   0.00000E+000   0.00000E+000
+      58   -0.31953E-006   0.43512E-006   0.00000E+000  -0.25213E-006   0.00000E+000   0.00000E+000
+      59   -0.40902E-006   0.12718E-006   0.00000E+000  -0.82900E-007   0.00000E+000   0.00000E+000
+      60   -0.37786E-006   0.17571E-006   0.00000E+000   0.12155E-006   0.00000E+000   0.00000E+000
+      61   -0.25378E-006   0.59320E-006   0.00000E+000   0.28389E-006   0.00000E+000   0.00000E+000
+      62    0.11668E-006   0.13300E-005   0.00000E+000   0.52046E-006   0.00000E+000   0.00000E+000
+      63    0.24862E-006   0.27707E-005   0.00000E+000  -0.23879E-007   0.00000E+000   0.00000E+000
+      64    0.28471E-006   0.23441E-005   0.00000E+000   0.48107E-006   0.00000E+000   0.00000E+000
+      65    0.89407E-008   0.11795E-005   0.00000E+000   0.55395E-008   0.00000E+000   0.00000E+000
+      66   -0.53862E-008   0.10721E-005   0.00000E+000  -0.98964E-008   0.00000E+000   0.00000E+000
+      67   -0.66123E-008   0.91634E-006   0.00000E+000  -0.59151E-008   0.00000E+000   0.00000E+000
+      68   -0.17010E-007   0.94694E-006   0.00000E+000   0.77302E-008   0.00000E+000   0.00000E+000
+      69    0.29209E-007   0.11066E-005   0.00000E+000   0.11032E-007   0.00000E+000   0.00000E+000
+      70   -0.37745E-007   0.10924E-005   0.00000E+000  -0.33951E-007   0.00000E+000   0.00000E+000
+      71    0.31669E-007   0.10029E-005   0.00000E+000  -0.68088E-008   0.00000E+000   0.00000E+000
+      72    0.63853E-007   0.10050E-005   0.00000E+000   0.13390E-009   0.00000E+000   0.00000E+000
+      73    0.31952E-007   0.10035E-005   0.00000E+000   0.63165E-008   0.00000E+000   0.00000E+000
+      74   -0.41474E-007   0.11388E-005   0.00000E+000   0.86631E-008   0.00000E+000   0.00000E+000
+      75    0.22127E-007   0.98884E-006   0.00000E+000  -0.36699E-008   0.00000E+000   0.00000E+000
+      76   -0.18103E-007   0.90258E-006   0.00000E+000   0.36999E-008   0.00000E+000   0.00000E+000
+      77   -0.48398E-008   0.10508E-005   0.00000E+000   0.10345E-007   0.00000E+000   0.00000E+000
+      78    0.87724E-008   0.11845E-005   0.00000E+000  -0.37524E-008   0.00000E+000   0.00000E+000
+      79    0.26589E-006   0.91682E-006   0.00000E+000   0.31644E-007   0.00000E+000   0.00000E+000
+      80    0.26735E-006   0.91546E-006   0.00000E+000  -0.28778E-007   0.00000E+000   0.00000E+000
+
+ MINIMUM VALUES
+ NODE         49             49              1             56              1              1
+ VALUE    -0.44120E-006   0.62439E-007   0.00000E+000  -0.57889E-006   0.00000E+000   0.00000E+000
+
+ MAXIMUM VALUES
+ NODE         33             63              1             62              1              1
+ VALUE     0.36600E-006   0.27707E-005   0.00000E+000   0.52046E-006   0.00000E+000   0.00000E+000
+ ***** ESTIMATED BOUNDS CONSIDERING THE EFFECT OF DISCRETIZATION ERROR *****   
+
+ MINIMUM VALUES
+ NODE         49             49             63             56             63             63
+ VALUE    -0.55178E-006  -0.48146E-007   0.00000E+000  -0.70597E-006   0.00000E+000   0.00000E+000
+
+ MAXIMUM VALUES
+ NODE         33             63             63             53             63             63
+ VALUE     0.52731E-006   0.29320E-005   0.00000E+000   0.63996E-006   0.00000E+000   0.00000E+000
+ ***************************************************************************   
+
+
+ USE LAST SUBSTEP ON RESULT FILE  FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     1  SUBSTEP=     1  CUMULATIVE ITERATION=     1
+   TIME/FREQUENCY=  1.0000    
+ TITLE= unsaved_project--Static Structural (A5)                                 
+
+ *GET  MY_MAXNODE  FROM  NODE  ITEM=NUM  MAX   VALUE=  220.000000     
+
+ *GET  MY_MINNODE  FROM  NODE  ITEM=NUM  MIN   VALUE=  1.00000000     
+
+ OPENED FILE= nodeInfo.txt FOR COMMAND FILE DATA 
+
+
+  COMMAND FILE CLOSED 
+
+
+
+ USE LAST SUBSTEP ON RESULT FILE  FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     1  SUBSTEP=     1  CUMULATIVE ITERATION=     1
+   TIME/FREQUENCY=  1.0000    
+ TITLE= unsaved_project--Static Structural (A5)                                 
+
+ *** WARNING ***                         CP =       0.203   TIME= 23:11:01
+ /PREP is not a recognized POST1 command, abbreviation, or macro.        
+  This command will be ignored.                                          
+
+ *** WARNING ***                         CP =       0.203   TIME= 23:11:01
+ Entity 186 is undefined.  The ESEL command is ignored.                  
+
+ *GET  ENUM      FROM  ELEM  ITEM=COUN           VALUE=  64.0000000    
+
+ OPENED FILE= elInfo.txt FOR COMMAND FILE DATA 
+
+
+  COMMAND FILE CLOSED 
+
+
+ Set Encoding of XML File to:ISO-8859-1
+
+ Set Output of XML File to:
+     PARM,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,
+         ,     ,     ,     ,     ,     ,     ,
+
+ DATABASE WRITTEN ON FILE  parm.xml                                                                                                                                                                                                                                                            
+
+ EXIT THE ANSYS POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  CP =         0.203
+
+
+
+ PRINTOUT RESUMED BY /GOP
+
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  23.1836111    
+
+ PARAMETER _TOTALTIM =     0.000000000    
+
+ EXIT ANSYS WITHOUT SAVING DATABASE
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          2
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
++--------- D I S T R I B U T E D   A N S Y S   S T A T I S T I C S ------------+
+
+Release: Release 18.2       Build: 18.2       Update: UP20170726   Platform: WINDOWS x64 
+Date Run: 01/30/2018   Time: 23:11     Process ID: 26820
+Operating System: Windows 10  (Build: 16299)
+
+Processor Model: Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz
+
+Compiler: Intel(R) FORTRAN Compiler Version 15.0.7  (Build: 20160518)
+          Intel(R) C/C++ Compiler Version 15.0.7  (Build: 20160518)
+          Intel(R) Math Kernel Library Version 2017.0.2 Product Build 20170126
+
+Number of machines requested            :    1
+Total number of cores available         :    8
+Number of physical cores available      :    4
+Number of processes requested           :    2
+Number of threads per process requested :    1
+Total number of cores requested         :    2 (Distributed Memory Parallel)               
+MPI Type: INTELMPI
+MPI Version: Intel(R) MPI Library 5.1.3 for Windows* OS
+
+
+GPU Acceleration: Not Requested
+
+Job Name: file0
+Input File: dummy.dat
+
+  Core                Machine Name   Working Directory
+ -----------------------------------------------------
+     0             DESKTOP-I12BF91   E:\OneDrive - UNSW\University\Year 4 Semester 1\MMAN4010\2D Plate Files\Surface Plate\_ProjectScratch\Scr50C1
+     1             DESKTOP-I12BF91   E:\OneDrive - UNSW\University\Year 4 Semester 1\MMAN4010\2D Plate Files\Surface Plate\_ProjectScratch\Scr50C1
+ 
+Latency time from master to core     1 =    0.825 microseconds
+ 
+Communication speed from master to core     1 =  6817.47 MB/sec
+
+Total CPU time for main thread                    :        1.0 seconds
+Total CPU time summed for all threads             :        0.6 seconds
+
+Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
+Elapsed time spent solution - preprocessing       :        0.0 seconds
+Elapsed time spent computing solution             :        0.0 seconds
+Elapsed time spent solution - postprocessing      :        0.0 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+ 
+
+Maximum total memory used                         :       14.0 MB
+Maximum total memory allocated                    :     3136.0 MB
+Total physical memory available                   :         16 GB
+
++------ E N D   D I S T R I B U T E D   A N S Y S   S T A T I S T I C S -------+
