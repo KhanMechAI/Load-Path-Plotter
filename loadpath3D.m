@@ -105,7 +105,9 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
         case 1
             workers = 4;
             switch dim
-                % Currently 2D and 3D are separate, very crude. Future update is to pass as vector and scall all functions according to the length of that vector.
+                % Currently 2D and 3D are separate, very crude. Future
+                % update is to pass as vector and scall all functions
+                % according to the length of that vector.
                 case {'3D'}
                     parfor (i = 1:numSeeds, workers)
                         fprintf('Starting path %i\n',i)
@@ -250,7 +252,7 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
     %Other considerations are for future transient analysis where multiple
     %data sets may have to be condensed. And that its a good backup of the
     %path calculation.
-    
+
     save([save_dir,'\Path Data\pathdata_',model_data_name,'.mat'], 'Paths');
     fig = figure;
     fprintf('Plotting Paths\n')
@@ -271,7 +273,7 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
     current_time = current_time + plot_time;
     waitbar(current_time/total_time,wb,sprintf('Printing PDF'))
     
-    % Create 
+    % Create new directory to store the output plots
     mkdir(save_dir,'\Path Plots')
     if newPDF
         dt = datestr(now,'HH.MM.SS_dd/mm/yy');
@@ -280,19 +282,26 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
         dateAppenedFN = [save_dir,'\Path Plots\',model_name, '.pdf'];
     end
     
-
+    % Contrary to variable name and the description in the GUI, this was
+    % repurposed to let the user choose where to print the plot to a pdf or
+    % not. As the density is so high to see the paths properly it can be an
+    % expensive task to compute.
+    
+    %Future update will check whether an instance of the .pdf is already
+    %open and modify the name so that saving conflicts dont happen.
     switch overlay
         case 1
             gcf        
             print(fig,dateAppenedFN, '-dpdf','-r2000', '-fillpage');
             open(dateAppenedFN);
         case 0
-            hold off
+            
     end
     delete(wb)
     fprintf('Load paths complete.\n')
 end
 function [] = modelPlot3D(x_paths,y_paths,z_paths,Intensity,PartArr)
+    %Just some custom settings for plotting the paths
     Alpha = 0.1;
     Buffer = 0.35;
     wireFrame(PartArr,Alpha, Buffer);
@@ -318,6 +327,7 @@ function [] = modelPlot3D(x_paths,y_paths,z_paths,Intensity,PartArr)
     colorbar;
 end
 function [] = modelPlot2D(x_paths,y_paths,Intensity,PartArr)
+%Just some custom settings for plotting the paths
     Alpha = 0.1;
     Buffer = 0.35;
     wireFrame2D(PartArr,Alpha, Buffer);
