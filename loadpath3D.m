@@ -1,15 +1,17 @@
 function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
                     overlay, parallel, newPDF, recompute, step_size, path_length)    
-%% ********************  Seed Coordinates  ******************************
-    F = findall(0,'type','figure','tag','TMWWaitbar'); %%%Unsupress this
-%     if wait bar wont close
+%% ********************  House Keeping   ******************************
+% Closes previously opened waitbars
+    F = findall(0,'type','figure','tag','TMWWaitbar'); 
     delete(F);
+
+    % Read's seed data in
     Seed = importdata(seed_dir, ',');
     xseed = Seed(:,1);
     yseed = Seed(:,2);
     zseed = Seed(:,3);
     numSeeds = length(xseed);
-%% HouseKeeping
+%% HouseKeeping - waitbar setup
     
     wb = waitbar(0,'1','Name','Computing Load Paths',...
             'CreateCancelBtn',...
@@ -24,7 +26,7 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
     warning('off','MATLAB:scatteredInterpolant:DupPtsAvValuesWarnId');
     warning('off','MATLAB:MKDIR:DirectoryExists')
 
-    %% Scan Data
+    %% Naming output files and killing interfering processes
     
     model_name = [model_name, ' - ',upper(path_dir), ' Path'];
     
@@ -40,20 +42,26 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
     
     %% ******************  Populate Nodes and Elements  *********************
     
+    % Detects whether previous data has been computed, if yes, skips recomputation unless forced by user in GUI
+
     if ~exist([save_dir, '\Path Data\data_',model_data_name,'.mat'], 'file') || recompute
+
         fprintf('New model or user nominated to recompute data. Starting now.\n')
         waitbar(current_time/total_time,wb,sprintf('Computing Initial Data'))
         
+        %Nodal Information module
         [StressData, numNodes] = nodeDat(sim_dir, numNodes);
         current_time = current_time + data_read_time/3;
         waitbar(current_time/total_time,wb,sprintf('Computing Initial Data'))
         fprintf('Nodal information complete. Starting stress population.\n')
         
+        %Node data module
         [nodes] = NodeDatRead(sim_dir, StressData, numNodes);
         current_time = current_time + data_read_time/3;
         waitbar(current_time/total_time,wb,sprintf('Computing Initial Data'))
         fprintf('Nodal stresses populated. Element generation beginning.\n')
         
+        %Element data and main data structure generation
         [MeshNode, nodePerEl, PartArr] = datread(sim_dir, nodes); 
         current_time = current_time + data_read_time/3;
         
@@ -70,6 +78,8 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
         fprintf('Data loaded. Starting path computation.\n')
         
     end
+        %******************** Waitbar and Status Update ***************************
+
     if getappdata(wb,'canceling')
         delete(wb)
         return
@@ -78,7 +88,7 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
     waitbar(current_time/total_time,wb,sprintf('Starting Paths'))
     %% ****************  Load Path Generation  ******************************
     
-    
+    %Initialise data containers for load paths
     
     Paths(numSeeds).X.forward = [];
     Paths(numSeeds).Y.forward = [];
@@ -89,20 +99,25 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
     Paths(numSeeds).Z.total = [];
     Paths(numSeeds).I.total = [];
         
+    % Not happy with the repeated code below - needs to be cleaned.    
     switch parallel
+        %Parallel computation if load paths
         case 1
             workers = 4;
             switch dim
+                % Currently 2D and 3D are separate, very crude. Future update is to pass as vector and scall all functions according to the length of that vector.
                 case {'3D'}
                     parfor (i = 1:numSeeds, workers)
                         fprintf('Starting path %i\n',i)
                         warning('off','MATLAB:scatteredInterpolant:DupPtsAvValuesWarnId');
+                        %Main work horse module - Runge Kutta
                         [x, y, z, intense] = rungekuttaNatInter3D(xseed(i),...
                             yseed(i),zseed(i), PartArr, path_dir, nodePerEl,path_length,false,step_size,wb);
                         if isempty(x)
                             fprintf('Path %i unsuccessful\n',i)
                             continue
                         end
+
                         Paths(i).X.forward = x;
                         Paths(i).Y.forward = y;
                         Paths(i).Z.forward = z;
@@ -215,13 +230,27 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
             end
     end        
     fprintf('All seeds tested and appropriate paths computed. Saving path data.\n')
-    %% ****************  Plotting and Printing  ******************************
+
+    %******************** Waitbar and Status Update ***************************
+
+
     if getappdata(wb,'canceling')
         delete(wb)
         return
     end
     waitbar(current_time/total_time,wb,sprintf('Paths Finished Paths, Saving and Plotting now...\n'))
 
+    %% ****************  Plotting and Printing  ******************************
+    %Data is output to .mat files so that in a future update the user can
+    %modulate the load path program. For example they could load previous
+    %paths and just run the plotting and printing section of the code. Or
+    %the user could just compute the paths and then send them to someone
+    %else to plot them on their machine or with their specific settings.
+
+    %Other considerations are for future transient analysis where multiple
+    %data sets may have to be condensed. And that its a good backup of the
+    %path calculation.
+    
     save([save_dir,'\Path Data\pathdata_',model_data_name,'.mat'], 'Paths');
     fig = figure;
     fprintf('Plotting Paths\n')
@@ -233,7 +262,7 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
             modelPlot2D([Paths(:).X],[Paths(:).Y],[Paths(:).I],PartArr)
     end
     
-    
+    %******************** Waitbar and Status Update ***************************
     if getappdata(wb,'canceling')
         delete(wb)
         return
@@ -242,6 +271,7 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
     current_time = current_time + plot_time;
     waitbar(current_time/total_time,wb,sprintf('Printing PDF'))
     
+    % Create 
     mkdir(save_dir,'\Path Plots')
     if newPDF
         dt = datestr(now,'HH.MM.SS_dd/mm/yy');
