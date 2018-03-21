@@ -1,10 +1,17 @@
 function [nodes] = NodeDatRead(fname, StressData, numNodes)
+%% Description
+% This script builds node objects from the stress data read in from
+% nodeDat.m. The initial reason this was not implemented in one parse was
+% inconsistent node's coming from the files. This seemed to be happening
+% when ANSYS would delete midside nodes, hence not storing their stress
+% values, but keeping the numbering system. I built this as a workaround.
+%
+% Since then however, I cam up with a better way of doing this which I am
+% yet to implement for nodes, but implemented for elements.
+
     clear nodes
-    if ~exist('fname', 'var')
-        fname = 'C:\Users\z5020362\Desktop\Uni\OneDrive_2_9-6-2017\test_files\dp0\SYS\MECH\ds.dat';
-    else
-        fname = [fname  '\ds.dat'];
-    end
+
+    fname = [fname  '\ds.dat'];
     
     nodeNums = StressData(1,:);
     xstress = StressData(2,:);
@@ -14,7 +21,7 @@ function [nodes] = NodeDatRead(fname, StressData, numNodes)
     yzstress = StressData(6,:);
     xzstress = StressData(7,:);
     
-    
+    %Opening file and scanning to the first useful string.
     datafile = fopen(fname);
 
     trashdata = 'a';
@@ -36,6 +43,7 @@ function [nodes] = NodeDatRead(fname, StressData, numNodes)
     linetest = strsplit(linetest);
     linetest = str2double(linetest);
     
+    %Building node objects to store stress data
     i = 1;
     while linetest(1) ~= -1
         if i == linetest(2)
