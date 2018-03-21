@@ -31,8 +31,9 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
     model_name = [model_name, ' - ',upper(path_dir), ' Path'];
     
     model_data_name = regexprep(model_name, ' ', '_');
-    
-    system(['taskkill /fi "WINDOWTITLE eq ', model_name,'.pdf"']);
+    %Want to make this platform independent. This line is only supported in
+    %windows distributions. Working on generalising
+%     system(['taskkill /fi "WINDOWTITLE eq ', model_name,'.pdf"']);
 
     nodei = [sim_dir '\' 'nodeInfo.txt'];
 
@@ -42,7 +43,8 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
     
     %% ******************  Populate Nodes and Elements  *********************
     
-    % Detects whether previous data has been computed, if yes, skips recomputation unless forced by user in GUI
+    % Detects whether previous data has been computed, if yes, skips
+    % recomputation unless forced by user in GUI
 
     if ~exist([save_dir, '\Path Data\data_',model_data_name,'.mat'], 'file') || recompute
 
@@ -62,7 +64,7 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
         fprintf('Nodal stresses populated. Element generation beginning.\n')
         
         %Element data and main data structure generation
-        [MeshNode, nodePerEl, PartArr] = datread(sim_dir, nodes); 
+        [~, nodePerEl, PartArr] = datread(sim_dir, nodes); 
         current_time = current_time + data_read_time/3;
         
         fprintf('Elements constructed, directories being created and data being saved.\n')
@@ -70,6 +72,7 @@ function loadpath3D(dim, sim_dir, seed_dir, save_dir, model_name,path_dir,...
         save([save_dir,'\Path Data\data_',model_data_name,'.mat'],'PartArr','nodes', 'nodePerEl', 'MeshNode');
         
     else
+        %This loads data if the preprocessign has already been done.
         fprintf('Previous model detected, loading data.\n')
         waitbar(current_time/total_time,wb,sprintf('Loading Data'))
         load([save_dir, '\Path Data\data_',model_data_name,'.mat']);
