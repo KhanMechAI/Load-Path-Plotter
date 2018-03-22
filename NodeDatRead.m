@@ -10,8 +10,12 @@ function [nodes] = NodeDatRead(fname, StressData, numNodes)
 % yet to implement for nodes, but implemented for elements.
 
     clear nodes
-
-    fname = [fname  '\ds.dat'];
+    if ismac
+        slash = '/';
+    elseif ispc
+        slash = '\';
+    end
+    fname = [fname  slash 'ds.dat'];
     
     nodeNums = StressData(1,:);
     xstress = StressData(2,:);
@@ -62,4 +66,3 @@ function [nodes] = NodeDatRead(fname, StressData, numNodes)
     end
     fclose(datafile); 
 end
-
