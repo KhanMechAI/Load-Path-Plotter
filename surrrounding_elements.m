@@ -1,4 +1,8 @@
 function [varargout] = surrrounding_elements(test_list, prev_els)
+%% Surrounding Elements 
+% This function essentially reccurs through the element definitions to
+% extract the nodes of the surrounding elements. This is used in computing
+% the interpolation function as well as in locating a point in a model.
 
     local_nodes = unique([test_list(:).nodes]);
     
