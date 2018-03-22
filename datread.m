@@ -1,4 +1,4 @@
-function [Mesh, numNodes,PartArr] = datread(fpath, nodes)
+function [numNodes,PartArr] = datread(fpath, nodes)
 %% Description
 % This script does much of the pre-proccesing, really its the
 % pre-processing workhorse. datread.m takes the nodes generated in
@@ -7,7 +7,12 @@ function [Mesh, numNodes,PartArr] = datread(fpath, nodes)
 % connectivity accordingly.
 
 
-    fname = [fpath  '\ds.dat'];
+    if ismac
+        slash = '/';
+    elseif ispc
+        slash = '\';
+    end
+    fname = [fpath  slash 'ds.dat'];
 
     datafile = fopen(fname);
 % Scans down the ds.dat file until the start of the element definitions.
@@ -207,5 +212,3 @@ function [skipLine, numNodes, numElements, type] = caseCheck(linetest)
     numElements = str2double(ElTypeCheck(end));
     type = char(ElTypeCheck(3));
 end
-
-
