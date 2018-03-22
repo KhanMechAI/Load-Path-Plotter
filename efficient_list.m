@@ -1,5 +1,10 @@
 function [efficient_list] = efficient_list(test_list,...
                             current_point,radius_of_influence)
+%% Efficient List
+% This function uses the sphere of influence to eliminate elements outside
+% a useful boundary. The radius of is boundary is calculated by taking the
+% maximal distance between two nodes in the current element and halving
+% it.
     
     x = current_point(1);
     y = current_point(2);
