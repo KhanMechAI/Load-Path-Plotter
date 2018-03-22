@@ -7,6 +7,8 @@ function [in, Element] = globalFind(PartArr, seedElement, current_point)
 % influenced by elements surrounding it.
 % The algorithm excludes any nodes that arent in the sphere of influence.
 % The elements that the remaining nodes belong to are then tested.
+% A future update of this will eleminate entire parts at a time by taking
+% the convext hull of a set of elements and ray casting the boundary.
 
 %The stuck test was used to get around some edge case that kept causing the
 %program to hang. I cant remember what tat was at this stage.
