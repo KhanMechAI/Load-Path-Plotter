@@ -1,15 +1,25 @@
 function [StressData, count] = nodeDat(filePath, numNodes)
+%% Description
+% 
+%  This function scans the nodalSolution.txt file and extracts the nodal
+%  stress information. This is stored in StressData and passed on.
+%  
+
 %% Columns of StressData have the structure:
-% StressData = [Node, SX, SY, SZ, SXY, SYZ, SXZ]
-    numOfResults = 7;
-     if ~exist('filePath', 'var')
-        filePath = 'C:\Users\z5020362\Desktop\Uni\OneDrive_2_9-6-2017\test1_files\dp0\SYS\MECH\nodalSolution.txt';
-    else
-        filePath = [filePath  '\nodalSolution.txt'];
+% StressData format:  
+%[<Node number>, <X stress>, <Y stress>, <Z stress>, <XY stress>, <YZ stress>, <XZ stress>]
+
+    if ismac
+        slash = '/';
+    elseif ispc
+        slash = '\';
     end
+    numOfResults = 7;
+    filePath = [filePath  slash 'nodalSolution.txt'];
     
     datafile = fopen(filePath);
-
+%Scans until the start of the file is found. Trash data is a temp variable
+%to test and advance the reading function.
     trashdata = 'a';
     startelements = '    NODE';
 
