@@ -1,5 +1,6 @@
 function [in] = triIntersect(Faces, O)
-%Moller Trombore Implementation
+%% Triangle Intersection
+%Moller Trombore Implementation of ray casting. See their paper.
     in =0;
     buffer = 1e5;
     A = Faces.A;

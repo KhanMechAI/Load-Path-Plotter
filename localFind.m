@@ -1,5 +1,10 @@
 function [in, current_element] = localFind(current_point, current_element)
-    
+%% Local Find
+% This function streamlines the global find by only testing elements
+% immediately adjacent to the current/previous element. 
+% A future update of this will take into consideration the paths'
+% trajectory and eliminate the elements that are a 180 degree rotaiton from
+% that.
     in =  triIntersect(current_element.Faces, current_point);
     if in
         return
